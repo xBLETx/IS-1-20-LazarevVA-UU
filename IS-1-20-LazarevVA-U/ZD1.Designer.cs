@@ -297,8 +297,9 @@ namespace IS_1_20_LazarevVA_U
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.Size = new System.Drawing.Size(115, 39);
             this.guna2GradientButton1.TabIndex = 9;
-            this.guna2GradientButton1.Text = "guna2GradientButton1";
+            this.guna2GradientButton1.Text = "Видеокарта";
             this.guna2GradientButton1.UseTransparentBackground = true;
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // guna2GradientButton2
             // 
@@ -317,15 +318,16 @@ namespace IS_1_20_LazarevVA_U
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.Size = new System.Drawing.Size(115, 39);
             this.guna2GradientButton2.TabIndex = 10;
-            this.guna2GradientButton2.Text = "guna2GradientButton2";
+            this.guna2GradientButton2.Text = "Жёсткий диск";
             this.guna2GradientButton2.UseTransparentBackground = true;
+            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(326, 14);
+            this.listBox1.Location = new System.Drawing.Point(322, 13);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(434, 394);
+            this.listBox1.Size = new System.Drawing.Size(439, 394);
             this.listBox1.TabIndex = 11;
             // 
             // ZD1
@@ -358,7 +360,6 @@ namespace IS_1_20_LazarevVA_U
 
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private System.Windows.Forms.ListBox listBox1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox9;
@@ -370,5 +371,6 @@ namespace IS_1_20_LazarevVA_U
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
