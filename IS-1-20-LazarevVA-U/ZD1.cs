@@ -11,7 +11,51 @@ using System.Windows.Forms;
 namespace IS_1_20_LazarevVA_U
 {
     public partial class ZD1 : Form
-    {
+    { 
+        public void togleHDD()
+        {
+            if (guna2ToggleSwitch1.Checked)
+            {
+                guna2TextBox5.Enabled = false;
+                guna2TextBox5.Cursor = Cursors.No;
+                guna2TextBox6.Enabled = false;
+                guna2TextBox6.Cursor = Cursors.No;
+                guna2TextBox8.Enabled = false;
+                guna2TextBox8.Cursor = Cursors.No;
+            }
+            else
+            {
+                guna2TextBox5.Enabled = true;
+                guna2TextBox5.Cursor = Cursors.IBeam;
+                guna2TextBox6.Enabled = true;
+                guna2TextBox6.Cursor = Cursors.IBeam;
+                guna2TextBox8.Enabled = true;
+                guna2TextBox8.Cursor = Cursors.IBeam;
+
+            }
+        }
+        public void togleGPU()
+        {
+            if (guna2ToggleSwitch1.Checked)
+            {
+                guna2TextBox3.Enabled = false;
+                guna2TextBox3.Cursor = Cursors.No;
+                guna2TextBox4.Enabled = false;
+                guna2TextBox4.Cursor = Cursors.No;
+                guna2TextBox7.Enabled = false;
+                guna2TextBox7.Cursor = Cursors.No;
+                
+            }
+            else
+            {
+                guna2TextBox3.Enabled = true;
+                guna2TextBox3.Cursor = Cursors.IBeam;
+                guna2TextBox4.Enabled = true;
+                guna2TextBox4.Cursor = Cursors.IBeam;
+                guna2TextBox7.Enabled = true;
+                guna2TextBox7.Cursor = Cursors.IBeam;
+            }
+        }
         public ZD1()
         {
             InitializeComponent();
@@ -34,6 +78,7 @@ namespace IS_1_20_LazarevVA_U
             {
                 MessageBox.Show($"Артикул: {articul} \n Цена: {price} \n Год Выпуска: {datatime}");
             }
+           
         }
 
         public class HDD<T> : Components<T>
@@ -97,6 +142,18 @@ namespace IS_1_20_LazarevVA_U
             listBox1.Items.Add($" Цена:{guna2TextBox1.Text} Интрефейс:{guna2TextBox3.Text} Кол-воОборотов:{guna2TextBox4.Text} Объём памяти:{guna2TextBox7.Text}" +
                 $"Дата выпуска: {guna2TextBox2.Text} Артикул:{guna2TextBox9.Text}");
             BLET.Display();
+        }
+
+        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
+        {
+            togleGPU();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            menu menu1 = new menu();
+            menu1.Show();
         }
     }
 }

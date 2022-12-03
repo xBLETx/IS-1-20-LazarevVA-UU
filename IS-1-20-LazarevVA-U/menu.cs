@@ -19,8 +19,10 @@ namespace IS_1_20_LazarevVA_U
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             ZD1 z1 = new ZD1();
-            z1.ShowDialog();
+            z1.Show();
+            
 
         }
     }
