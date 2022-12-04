@@ -25,5 +25,12 @@ namespace IS_1_20_LazarevVA_U
             
 
         }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ZD2 z2 = new ZD2();
+            z2.Show();
+        }
     }
 }
