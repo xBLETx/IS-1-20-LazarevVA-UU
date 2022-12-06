@@ -368,6 +368,7 @@ namespace IS_1_20_LazarevVA_U
             this.guna2ToggleSwitch2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2ToggleSwitch2.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.guna2ToggleSwitch2.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.CheckedChanged += new System.EventHandler(this.guna2ToggleSwitch2_CheckedChanged);
             // 
             // guna2ControlBox1
             // 

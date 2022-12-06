@@ -36,7 +36,7 @@ namespace IS_1_20_LazarevVA_U
         }
         public void togleGPU()
         {
-            if (guna2ToggleSwitch1.Checked)
+            if (guna2ToggleSwitch2.Checked)
             {
                 guna2TextBox3.Enabled = false;
                 guna2TextBox3.Cursor = Cursors.No;
@@ -154,6 +154,11 @@ namespace IS_1_20_LazarevVA_U
             this.Close();
             menu menu1 = new menu();
             menu1.Show();
+        }
+
+        private void guna2ToggleSwitch2_CheckedChanged(object sender, EventArgs e)
+        {
+            togleHDD();
         }
     }
 }

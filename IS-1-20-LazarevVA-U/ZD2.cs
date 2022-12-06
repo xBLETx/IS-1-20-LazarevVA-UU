@@ -21,6 +21,7 @@ namespace IS_1_20_LazarevVA_U
                 // строка подключения к БД
                 //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_18;database=is_1_20_st18_KURS;password=54276237;";
                 string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_18;database=is_1_20_st18_KURS;password=54276237;";
+                
                 //Переменная соединения
                 MySqlConnection connDB;
 
@@ -41,10 +42,16 @@ namespace IS_1_20_LazarevVA_U
             {
                 conn = Con.Conn1();
                 conn.Open();
+                MessageBox.Show("Всё гуд");
+
             }
             catch
             {
                 MessageBox.Show("Ошибка подключения");
+            }
+            finally
+            {
+                conn.Close();
             }
             
         }

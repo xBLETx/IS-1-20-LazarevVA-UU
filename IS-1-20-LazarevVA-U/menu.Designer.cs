@@ -110,6 +110,7 @@ namespace IS_1_20_LazarevVA_U
             this.guna2GradientButton4.Size = new System.Drawing.Size(122, 72);
             this.guna2GradientButton4.TabIndex = 3;
             this.guna2GradientButton4.Text = "guna2GradientButton4";
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
             // 
             // guna2GradientButton5
             // 
