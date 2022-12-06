@@ -16,21 +16,7 @@ namespace IS_1_20_LazarevVA_U
     {
         static MySqlConnection conn;
         static MySqlCommand cmd;
-        public class Con
-        {
-            static public MySqlConnection Conn1()
-            {
-                
-                //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_18;database=is_1_20_st18_KURS;password=54276237;";
-                string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_18;database=is_1_20_st18_KURS;password=54276237;";
-                
-                MySqlConnection connDB;
-
-                connDB = new MySqlConnection(connStr);
-
-                return connDB;
-            }
-        }
+       
         
         static public MySqlCommand Data()
         {
