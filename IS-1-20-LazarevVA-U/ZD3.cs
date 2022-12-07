@@ -11,34 +11,23 @@ using MySql.Data.MySqlClient;
 
 namespace IS_1_20_LazarevVA_U
 {
-    
+
     public partial class ZD3 : Form
     {
         static MySqlConnection conn;
         static MySqlCommand cmd;
-       
+
         
+
         static public MySqlCommand Data()
         {
 
-            
+
             string Select = "SELECT OrderMain.idOrder, OrderMain.clientOrder, OrderMain.Typeofelectronic, OrderMain.Manufacturer, OrderMain.uslugaOrder, OrderMain.Hasaccepted, OrderMain.orderstatus FROM OrderMain INNER JOIN Client ON OrderMain.clientOrder = Client.idClient INNER JOIN TypeOfElect ON OrderMain.Typeofelectronic = TypeOfElect.idtypeofelectronics INNER JOIN Manufacturers ON OrderMain.Manufacturer = Manufacturers.idManuf INNER JOIN PriceList ON OrderMain.uslugaOrder = PriceList.idpricelist INNER JOIN Employee ON OrderMain.Hasaccepted = Employee.idempl INNER JOIN OrderStatus ON OrderMain.orderstatus = OrderStatus.idOrderStatus";
             MySqlCommand cmd1 = new MySqlCommand(Select, conn);
             return cmd1;
         }
-        public ZD3()
-        {
-            InitializeComponent();
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            menu menu1 = new menu();
-            menu1.Show();
-        }
-
-        private void ZD3_Load(object sender, EventArgs e)
+        public void dataPrint()
         {
             try
             {
@@ -46,20 +35,28 @@ namespace IS_1_20_LazarevVA_U
                 conn.Open();
                 cmd = Data();
                 MySqlDataReader read = cmd.ExecuteReader();
+                List<string[]> data = new List<string[]>();//список
+
                 while (read.Read())
                 {
-                    int Add = dataGridView1.Rows.Add();
-                    dataGridView1.Rows[Add].Cells[0].Value = read[0].ToString();
-                    dataGridView1.Rows[Add].Cells[1].Value = read[1].ToString();
-                    dataGridView1.Rows[Add].Cells[2].Value = read[2].ToString();
-                    dataGridView1.Rows[Add].Cells[3].Value = read[3].ToString();
-                    dataGridView1.Rows[Add].Cells[4].Value = read[4].ToString();
-                    dataGridView1.Rows[Add].Cells[5].Value = read[5].ToString();
-                    dataGridView1.Rows[Add].Cells[6].Value = read[6].ToString();
+                    data.Add(new string[7]);
+
+                    data[data.Count - 1][0] = read[0].ToString();
+                    data[data.Count - 1][1] = read[1].ToString();
+                    data[data.Count - 1][2] = read[2].ToString();
+                    data[data.Count - 1][3] = read[3].ToString();
+                    data[data.Count - 1][4] = read[4].ToString();
+                    data[data.Count - 1][5] = read[5].ToString();
+                    data[data.Count - 1][6] = read[6].ToString();
                 }
                 read.Close();
+                conn.Close();
+                foreach (string[] s in data)//цыкл новые строки
+                {
+                    dataGridView1.Rows.Add(s);
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при получении данных!\n или ошибка подключения\n {ex}");
             }
@@ -67,16 +64,10 @@ namespace IS_1_20_LazarevVA_U
             {
                 conn.Close();
             }
-
-
         }
-
-       
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        public void eventClic1()
         {
-            int Order = e.RowIndex;
-            string productId = dataGridView1.Rows[Order].Cells[0].Value.ToString();
+            
             try
             {
                 conn.Open();
@@ -103,6 +94,32 @@ namespace IS_1_20_LazarevVA_U
             {
                 conn.Close();
             }
+        }
+        
+
+        
+        public ZD3()
+        {
+            InitializeComponent();
+        }
+
+       
+
+        private void ZD3_Load(object sender, EventArgs e)
+        {
+            dataPrint();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            menu menu1 = new menu();
+            menu1.Show();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            eventClic1();
 
         }
     }

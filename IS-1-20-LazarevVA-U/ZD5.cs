@@ -19,6 +19,7 @@ namespace IS_1_20_LazarevVA_U
         {
             InitializeComponent();
         }
+        
         public void data()
         {
             conn = ConnectDB.Class1.Con.Conn1();
@@ -26,17 +27,22 @@ namespace IS_1_20_LazarevVA_U
             string zap = "SELECT * FROM t_Uchebka_Lazarev";
             MySqlCommand cmd = new MySqlCommand(zap, conn);
             MySqlDataReader read = cmd.ExecuteReader();
+            List<string[]> data = new List<string[]>();
             while (read.Read())
             {
-                int Add = dataGridView1.Rows.Add();
-                dataGridView1.Rows[Add].Cells[0].Value = read[0].ToString();
-                dataGridView1.Rows[Add].Cells[1].Value = read[1].ToString();
-                dataGridView1.Rows[Add].Cells[2].Value = read[2].ToString();
+                data.Add(new string[3]);
 
+                data[data.Count - 1][0] = read[0].ToString();
+                data[data.Count - 1][1] = read[1].ToString();
+                data[data.Count - 1][2] = read[2].ToString();
+                
             }
             read.Close();
             conn.Close();
-            guna2TextBox1.Text = "";
+            foreach (string[] s in data)
+            {
+                dataGridView1.Rows.Add(s);
+            }
         }
         private void ZD5_Load(object sender, EventArgs e)
         {
