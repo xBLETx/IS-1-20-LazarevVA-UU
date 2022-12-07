@@ -53,5 +53,10 @@ namespace IS_1_20_LazarevVA_U
             ZD5 z5 = new ZD5();
             z5.Show();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
